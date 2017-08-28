@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans-4.1.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:property-placeholder location="classpath:cache/memcached.properties" ignore-unresolvable="true"/>
+
+    <!-- 配置 memcached... . -->
+    <bean id="memCachedClient" class="com.whalin.MemCached.MemCachedClient">
+        <!-- 注入数据源 -->
+        <constructor-arg >
+            <value>sockIOPool</value>
+        </constructor-arg>
+        <property name="defaultEncoding" value="${defaultEncoding}"></property>
+    </bean>
+
+    <bean id="sockIOPool" class="com.whalin.MemCached.SockIOPool" factory-method="getInstance" init-method="initialize" destroy-method="shutDown">
+        <constructor-arg >
+            <value>sockIOPool</value>
+        </constructor-arg>
+
+        <property name="initConn" value="${initConn}"></property>
+        <property name="maxConn" value="${maxConn}"></property>
+        <property name="minConn" value="${minConn}"></property>
+
+        <!--自查线程周期进行工作，其每次休眠时间 -->
+        <property name="maintSleep" value="${maintSleep}"/>
+        <!--检查活跃 false时调用返回null-->
+        <property name="aliveCheck" value="${aliveCheck}"/>
+        <!--读取数据超时时间-->
+        <property name="socketTO" value="${socketTO}"></property>
+        <!--获取连接超时时间-->
+        <property name="socketConnectTO" value="${socketConnectTO}"></property>
+
+        <!--最大空闲时间-->
+        <property name="maxIdle" value="${maxIdle}"></property>
+        <!--最大连接时间-->
+        <property name="maxBusyTime" value="${maxBusyTime}"></property>
+
+        <property name="servers">
+            <list><!-- 可配置多台 -->
+                <value>${server.001}</value>
+            </list>
+        </property>
+
+        <property name="weights">
+            <list><!-- 权重：和上面的IP一一对应 -->
+                <value>${weights.001}</value>
+            </list>
+        </property>
+    </bean>
+
+</beans>

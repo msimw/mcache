@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans-4.1.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <import resource="classpath:cache/applicationContext-redis.xml"></import>
+    <import resource="classpath:cache/applicationContext-memcached.xml"></import>
+
+    <bean id="cacheSupport" class="com.msimw.mcache.impl.RedisCacheSupport">
+        <property name="redisClient" ref="redisClient"></property>
+    </bean>
+
+    <bean id="redisCacheHandler" class="com.msimw.mcache.handler.impl.RedisCacheHandler"></bean>
+    <bean id="memcachedHandler" class="com.msimw.mcache.handler.impl.memcached.MemcachedHandler"></bean>
+
+    <!-- 统一缓存处理  切面对象 -->
+    <bean id="cacheInterceptor" class="com.msimw.mcache.aop.CacheInterceptor">
+        <property name="defaultCacheHandler" ref="redisCacheHandler"/>
+
+        <property name="cacheHandlerMap">
+            <map>
+                <entry key="memcached" value-ref="memcachedHandler"/>
+            </map>
+        </property>
+    </bean>
+
+    <aop:config proxy-target-class="true">
+        <aop:aspect ref="cacheInterceptor">
+            <aop:around method="cache" pointcut="@within(com.msimw.mcache.annotation.Cached)  and @annotation(com.msimw.mcache.annotation.Cacheable)" ></aop:around>
+            <aop:before method="update" pointcut="@within(com.msimw.mcache.annotation.Cached)  and (@annotation(com.msimw.mcache.annotation.CacheEvict) or @annotation(com.msimw.mcache.annotation.CacheEvicts))"></aop:before>
+        </aop:aspect>
+    </aop:config>
+
+
+
+
+</beans>
