@@ -25,7 +25,7 @@ public @interface CacheEvict {
      * 分组名称
      * @return
      */
-    String value() default "bst";
+    String value() default "cache";
 
     /**
      * 缓存key

@@ -18,5 +18,5 @@ public @interface Cached {
       * 分组名称
       * @return
       */
-     String value() default "bst";
+     String value() default "cache";
 }

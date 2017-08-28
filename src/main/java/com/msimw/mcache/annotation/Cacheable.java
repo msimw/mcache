@@ -25,7 +25,7 @@ public @interface Cacheable {
      * 分组名称
      * @return
      */
-    String value() default "bst";
+    String value() default "cache";
 
     /**
      * 缓存key 这是是参考 spring mcache  == com.bst.zw.common.mcache.annotation.CacheGroupKey（这个已摈弃）
