@@ -21,6 +21,7 @@
         <property name="cacheHandlerMap">
             <map>
                 <entry key="memcached" value-ref="memcachedHandler"/>
+                <entry key="redis" value-ref="redisCacheHandler"/>
             </map>
         </property>
     </bean>
