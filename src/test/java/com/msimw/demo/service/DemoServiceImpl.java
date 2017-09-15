@@ -1,6 +1,7 @@
 package com.msimw.demo.service;
 
 import com.msimw.demo.api.IDemoService;
+import com.msimw.demo.dto.Demo;
 import com.msimw.mcache.annotation.CacheEvict;
 import com.msimw.mcache.annotation.Cacheable;
 import com.msimw.mcache.annotation.Cached;
@@ -13,9 +14,6 @@ public class DemoServiceImpl implements IDemoService {
 
     /**
      * 缓存
-     * @param id
-     * @param name
-     * @return
      */
     @Cacheable(keys = "id")
     public String query(String id, String name) {
@@ -25,11 +23,26 @@ public class DemoServiceImpl implements IDemoService {
 
     /**
      * 更新
-     * @param id
-     * @param name
-     * @return
      */
     @CacheEvict(keys = "id")
     public void update(String id, String name) {
+    }
+
+    /**
+     * 查询
+     */
+    @Cacheable(keys = "id")
+    @Override
+    public String query1(String id) {
+        return null;
+    }
+
+    /**
+     * 更新
+     */
+    @CacheEvict(keys = "id")//or  @CacheEvict(keys = "demo.id")
+    @Override
+    public void update1(Demo demo) {
+
     }
 }

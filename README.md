@@ -35,42 +35,46 @@
 
        1.代码示例
        
-       public interface IDemoService {
-       
-           public String query(String id,String name);
-       
-           public void update(String id, String name);
-       }
-
-       
        @Cached
        public class DemoServiceImpl implements IDemoService {
        
            /**
             * 缓存
-            * @param id
-            * @param name
-            * @return
             */
            @Cacheable(keys = "id")
            public String query(String id, String name) {
                return "helloworld";
            }
        
-       
            /**
             * 更新
-            * @param id
-            * @param name
-            * @return
             */
            @CacheEvict(keys = "id")
            public void update(String id, String name) {
+           }
+       
+           /**
+            * 查询
+            */
+           @Cacheable(keys = "id")
+           @Override
+           public String query1(String id) {
+               return null;
+           }
+       
+           /**
+            * 更新
+            */
+           @CacheEvict(keys = "id")//or  @CacheEvict(keys = "demo.id")
+           @Override
+           public void update1(Demo demo) {
+       
            }
        }
        
        
        2.配置文件
+       
        <import resource="classpath:cache/applicationContext-cache.xml"></import>
        <bean id="demoService" class="com.msimw.demo.service.DemoServiceImpl"></bean>
               
