@@ -22,7 +22,7 @@
             当有多个重复的属性名时：可以使用[参数名.属性名]的形式(user.name)。
           5.属性survivalTime缓存存活时间，默认30分钟，单位是秒。-1标示永不过期。
 
-       3.CacheEvict 或者 CacheEvicts(表示多个CacheEvict )
+       3.CacheEvict 或者 CacheEvicts(表示多个CacheEvict 清空多个缓存)
           1.用在缓存有更新的方法上。
           2.属性介绍参见 Cacheable
        4.对于部分统一缓存满足不了的需求可使用CacheSupport接口来手动控制。
