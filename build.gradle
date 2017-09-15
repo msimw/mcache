@@ -1,4 +1,4 @@
-group 'com.msimw'
+group 'com.githup.msimw'
 version '1.0-SNAPSHOT'
 
 apply plugin: 'java'
