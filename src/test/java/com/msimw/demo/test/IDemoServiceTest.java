@@ -1,6 +1,7 @@
 package com.msimw.demo.test;
 
 import com.msimw.demo.api.IDemoService;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,7 @@ import static org.junit.Assert.*;
 /**
  * Created by msimw on 17-9-15.
  */
+@Ignore
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("classpath:applicationContext-test.xml")
 public class IDemoServiceTest {
