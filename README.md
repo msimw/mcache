@@ -32,8 +32,47 @@
        3.就可以在Cacheable注解上选择相应缓存处理器了。  
        
 ###5.Demo
+
+       1.代码示例
+       
+       public interface IDemoService {
+       
+           public String query(String id,String name);
+       
+           public void update(String id, String name);
+       }
+
+       
+       @Cached
+       public class DemoServiceImpl implements IDemoService {
+       
+           /**
+            * 缓存
+            * @param id
+            * @param name
+            * @return
+            */
+           @Cacheable(keys = "id")
+           public String query(String id, String name) {
+               return "helloworld";
+           }
        
        
+           /**
+            * 更新
+            * @param id
+            * @param name
+            * @return
+            */
+           @CacheEvict(keys = "id")
+           public void update(String id, String name) {
+           }
+       }
+       
+       
+       2.配置文件
+       <import resource="classpath:cache/applicationContext-cache.xml"></import>
+       <bean id="demoService" class="com.msimw.demo.service.DemoServiceImpl"></bean>
               
 
                                                                                                                                            2017-07-18
