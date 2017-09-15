@@ -30,6 +30,10 @@
        1.实现CacheHandler接口或继承AbstractCacheHandler类
        2.将新的缓存处理器注入到CacheInterceptor 拦截器中
        3.就可以在Cacheable注解上选择相应缓存处理器了。  
+       
+###5.Demo
+       
+       
               
 
                                                                                                                                            2017-07-18
