@@ -14,7 +14,7 @@
        
        2.Cacheable
           1.用在需要缓存的方法上。
-          2.属性cache 标示使用哪一种缓存方式。目前只支持redis，默认值redis，后续可扩展memcache等。
+          2.属性cache 标示使用哪一种缓存方式。目前支持redis，memcache。
           3.属性value 用于标示缓存分组，默认值bst。
           4.属性String[]  keys用于标示用那几个字段作为缓存key。可以是参数或参数的属性，
             当有多个重复的属性名时：可以使用[参数名.属性名]的形式(user.name)。
