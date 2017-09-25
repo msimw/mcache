@@ -25,9 +25,6 @@ import java.util.*;
 /**
  * Created by huming on 10:13 2017/4/19.
  *
- * @Author: huming
- * @Description: 缓存数据拦截器
- * @Modified By:
  */
 public class CacheInterceptor {
 

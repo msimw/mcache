@@ -9,7 +9,8 @@ public interface ISerialization {
 
     /**
      * 序列化
-     * @param
+     * @param obj
+     * @param returnType
      * @return
      */
     public <T> T serialize(Object obj,Class<T> returnType);

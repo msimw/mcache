@@ -13,11 +13,8 @@ import java.util.Set;
 /**
  * Created by huming on 10:26 2017/4/19.
  *
- * @Author: huming
- * @Description: redis CacheHandler
  * 1.通过spring aop实现缓存.
  * 2.会缓存@Cached的类的查询方法.修改时,针对统一分组清空
- * @Modified By:
  */
 public class RedisCacheHandler extends AbstractCacheHandler {
 

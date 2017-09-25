@@ -45,7 +45,6 @@ public interface RedisClient {
      * 设置超时时间
      * @param key
      * @param second
-     * @return
      */
     void expire(String key, int second);
 
@@ -59,7 +58,6 @@ public interface RedisClient {
     /**
      *
      * @param key
-     * @return
      */
     void del(String key);
 

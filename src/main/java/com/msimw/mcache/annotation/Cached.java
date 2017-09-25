@@ -5,9 +5,6 @@ import java.lang.annotation.*;
 /**
  * Created by huming on 10:17 2017/4/19.
  *
- * @Author: huming
- * @Description: 标识是否开启缓存
- * @Modified By:
  */
 @Target(value={ElementType.TYPE})//类型上
 @Retention(RetentionPolicy.RUNTIME)//作用域

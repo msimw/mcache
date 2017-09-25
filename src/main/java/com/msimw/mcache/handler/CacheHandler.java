@@ -10,9 +10,6 @@ import java.lang.reflect.InvocationTargetException;
 /**
  * Created by huming on 10:23 2017/4/19.
  *
- * @Author: huming
- * @Description: 缓存处理器
- * @Modified By:
  */
 public interface CacheHandler {
 
