@@ -6,6 +6,14 @@
 ### 2.实现功能：
 粗粒度的缓存+相对细粒度的缓存。
 
+### Maven
+
+    <dependency>
+                <groupId>com.github.msimw</groupId>
+                <artifactId>mcache</artifactId>
+                <version>1.0-SNAPSHOT</version>
+    </dependency>
+
 ### 3.如何使用:
 
     1.注解的介绍:
