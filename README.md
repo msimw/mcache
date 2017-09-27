@@ -9,9 +9,9 @@
 ### Maven
 
     <dependency>
-                <groupId>com.github.msimw</groupId>
-                <artifactId>mcache</artifactId>
-                <version>1.0-SNAPSHOT</version>
+        <groupId>com.github.msimw</groupId>
+        <artifactId>mcache</artifactId>
+        <version>1.0</version>
     </dependency>
 
 ### 3.如何使用:
